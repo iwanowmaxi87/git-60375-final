@@ -1,0 +1,459 @@
+@import "utilidades/variables";
+@import "utilidades/mixin";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+body {
+  background-color: $color-fondo;
+  color: $color-primario;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  height: 130px;
+  background-color: $dark-bg-color;
+  @include shadow;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  .logo {
+    height: 80px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin-right: 20px;
+
+      a {
+        text-decoration: none;
+        color: $color-primario;
+
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+  }
+
+/* Estilos para el botón desplegable */
+  .dropdown {
+    display: none;
+
+    .dropbtn {
+      font-size: 1.5rem;
+      background-color: $dark-bg-color;
+      color: $color-primario;
+      border: none;
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 100;
+      left: 50%;
+      transform: translateX(30%);
+      a{
+        color: $light-text-color;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .dropdown {
+      display: block;
+    }
+    .nav-links {
+      display: none;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  }
+}
+
+main {
+  div {
+    .img-dos, .img-cinco {
+      display: none;
+    }
+
+    h2 {
+      margin: 10px 0;
+      font-size: 30px;
+    }
+  }
+
+  .section {
+    height: 65vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 60%);
+
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 40% 40% 55%;
+    }
+  }
+}
+
+.section-explorar {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 30%);
+  gap: 1rem;
+  margin: 3rem 2rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .boton-explorar {
+    list-style: none;
+    text-decoration: none;
+    margin: 20px;
+    background-color: $dark-bg-color;
+    color: $light-text-color;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 25px;
+    @include shadow;
+  }
+}
+
+.titulo-botanicos {
+  font-family: $font-family;
+  text-align: center;
+  margin: 40px auto 0;
+  color: $light-text-color;
+  background-color: $dark-bg-color;
+  border-radius: 50px 50px 0 0;
+  width: 90%;
+  padding: 10px;
+  @include shadow;
+
+  h1 {
+    color: $color-primario;
+    padding: 10px;
+  }
+  P{
+    color: $color-parrafos;
+  }  
+}
+.subtitulo-botanicos{
+  h2{
+    margin: 20px auto 0;
+    width: 90%;
+    text-align: center;
+    padding: 30px;
+    background-color: $bg-color-secundario;
+    border-radius: 0 0 50px 50px;
+  }
+}
+.section-botanicos {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(6, 20%);
+  gap: 10rem;  
+  margin: 10px auto;
+  transition: transform 0.3s ease;
+  
+
+  img {
+    border-radius: 50px 50px ;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    margin-top: 50px;
+    @include shadow;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  p {
+    background-color: $bg-color-secundario;
+    color: $dark-text-color;
+    border-radius: 50px 0px 50px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    @include shadow;
+  }
+
+  h3{
+    margin: 10px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    padding: 10px;
+    text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
+  }  
+}
+/* mq de tablet seccion botanicos */
+@media screen and (min-width: 600px) {
+  main .section-botanicos {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 50%);
+    }    
+  }
+/* mq de desktop seccion botanicos */
+  @media screen and (min-width: 1024px) {
+  main .section-botanicos {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 30%);
+    }
+  }
+
+  
+/*SECCION CONTACTENOS */
+
+.body-contactenos {
+  background-color: $dark-bg-color;
+}
+
+.contactenos {
+  @include medidas (70%, auto);
+  margin: 40px auto;
+  padding: 50px;
+  border-radius: 50px;
+  background-color: $dark-text-color;
+  @include shadow;
+
+  .tit-contactenos {
+    color: $light-text-color;
+    text-align: center;
+    margin: 0 0 20px;
+  }
+
+  .form-contactenos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .label-contactenos {
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+      padding: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      @include medidas (100%, auto);
+    }
+
+    .textarea-msj {
+      padding: 40px;
+    }
+
+    .boton-contactenos {
+      padding: 10px 20px;
+      margin: 0;
+      border: none;
+      border-radius: 4px;
+      background-color: #0e5977;
+      color: $light-text-color;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-primario;
+        color: $dark-text-color;
+      }
+    }
+  }
+}
+main {
+  // Estilo para el contenedor .acceder-contactenos
+  .acceder-contactenos {
+    font-size: 3rem;
+    text-align: center;
+    margin: 50px 0 10px 0;
+    background-color: $bg-color-secundario;
+    border-radius: 50px 50px 0 0;
+    width: 70%;
+    padding: 20px;
+    @include shadow; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Estilo para el párrafo dentro de .acceder-contactenos
+  .p-contactenos {
+    color: $color-parrafos;
+    text-align: center;
+    background-color: $color-primario;
+    border-radius: 0 0 50px 50px;
+    width: 70%; 
+    padding: 10px; 
+    @include shadow;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+
+  // Estilo para centrar h1 y h3
+  h1, h3 {
+    text-align: center;
+  }
+}
+
+footer {
+  .copy, .footer-botanicos {
+    p{
+    text-align: center;
+    background-color: $color-fondo;
+    box-shadow: 0 -15px 20px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 100rem;  
+    }  
+  }
+}
+
+
+/*bootstrap nosotros*/
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $light-text-color;   
+  height: 50%;
+  width: auto;
+  border-radius: 20px;  
+  
+}
+.custom-bg {
+  background-color: $fondo-transparente;
+  border-radius: 20px;
+  height: auto;
+  width: auto;
+  text-align: center;
+  
+}
+
+
+/*bootstrap tienda*/
+
+.section-inicio {
+  position: relative; 
+  text-align: center;
+  overflow: hidden; 
+  color: #736032;
+  text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.8);
+  background-color: #272c3b;
+  
+}
+
+.section-inicio{
+   .container {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 1;   
+   }  
+}
+
+
+
+
+
+
+
+
+/*bootstrap bienvenidos*/
+
+.container-footer{
+  text-align: center;
+  color: #070707;
+  text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 20px 0px 0px;
+}
+
+.carousel-caption {
+position: absolute;
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;   
+border-radius: 20px;
+
+
+}
+.custom-bg {
+background-color: rgba(0, 0, 0, 0.2);
+border-radius: 20px;
+text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.4);
+
+}
+
+.custom-bg{
+    h2 {
+  font-size: 4vw;
+    }
+  }
+
+.custom-bg{
+     p {
+  font-size: 2vw; 
+     }
+}
+
+.custom-bg{ 
+  a.btn {
+font-size: 1.5vw;
+background-color: #274274;
+color: aliceblue;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
